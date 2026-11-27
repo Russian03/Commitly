@@ -182,6 +182,21 @@ describe('refreshDay', () => {
   })
 })
 
+describe('puntos del día anterior', () => {
+  it('cuentan a partir de las 8:00', async () => {
+    const { clock, state } = await ready()
+    expect(state().creditedThrough).toBe('2026-11-26')
+
+    clock.now = SATURDAY
+    state().refreshDay()
+    expect(state().creditedThrough).toBe('2026-11-26')
+
+    clock.now = new Date(2026, 10, 28, 8, 0, 1)
+    state().refreshDay()
+    expect(state().creditedThrough).toBe('2026-11-27')
+  })
+})
+
 describe('fallos de escritura', () => {
   const failing = () => {
     const memory = memoryStorage()

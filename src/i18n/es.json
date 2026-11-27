@@ -19,7 +19,46 @@
     "done": "Hecho"
   },
   "today": {
-    "title": "Galardones"
+    "title": "Galardones",
+    "state": {
+      "no-goals": "Sin metas",
+      "rest": "Día libre",
+      "pending": "Por empezar",
+      "partial": "En marcha",
+      "perfect": "Día perfecto"
+    },
+    "emptyHint": "Añade una meta desde Tareas.",
+    "progress_one": "{{done}} de {{count}} meta",
+    "progress_other": "{{done}} de {{count}} metas",
+    "dayPoints_one": "+{{count, number}} punto mañana a las 8:00",
+    "dayPoints_other": "+{{count, number}} puntos mañana a las 8:00",
+    "streakDays_one": "{{count}} día seguido",
+    "streakDays_other": "{{count}} días seguidos",
+    "level": "Nivel {{level}}",
+    "totalPoints_one": "{{count, number}} punto",
+    "totalPoints_other": "{{count, number}} puntos",
+    "toNext_one": "Falta {{count, number}} para el nivel {{next}}",
+    "toNext_other": "Faltan {{count, number}} para el nivel {{next}}",
+    "progressLabel": "Progreso hacia el nivel {{next}}",
+    "streaks": "Rachas",
+    "noStreak": "Sin racha todavía",
+    "pendingPoints_one": "+{{count, number}} de ayer a las 8:00",
+    "pendingPoints_other": "+{{count, number}} de ayer a las 8:00",
+    "perfectStreak_one": "{{count}} día perfecto seguido",
+    "perfectStreak_other": "{{count}} días perfectos seguidos",
+    "bestStreak_one": "Récord: {{count}} día",
+    "bestStreak_other": "Récord: {{count}} días",
+    "bestStreakNow": "Es el récord",
+    "firstStreak": "Completa un día entero para empezar",
+    "milestone_one": "{{count}} día perfecto",
+    "milestone_other": "{{count}} días perfectos",
+    "milestoneLeft_one": "Falta {{count}} · +{{reward, number}} puntos",
+    "milestoneLeft_other": "Faltan {{count}} · +{{reward, number}} puntos",
+    "allUnlocked": "Todos los logros conseguidos",
+    "reward": "+{{reward, number}} puntos",
+    "unlocked": "Conseguido",
+    "locked": "Pendiente",
+    "partial": "{{value}} de {{target}}"
   },
   "year": {
     "title": "Año {{year}}"

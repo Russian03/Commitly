@@ -21,4 +21,8 @@ describe('logo', () => {
   ])('%s dibuja el mismo logo', (file) => {
     expect(paths(read(file), 'android:pathData')).toContain(logo)
   })
+
+  it('la medalla lleva el mismo logo', () => {
+    expect(paths(read('src/features/today/Medal.tsx'), ' d')).toContain(logo)
+  })
 })
