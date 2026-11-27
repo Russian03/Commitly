@@ -1,0 +1,43 @@
+# Dependencias
+node_modules/
+.pnpm-store/
+
+# Compilación e informes
+dist/
+build/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+.gradle/
+.kotlin/
+*.apk
+*.aab
+
+# Configuración local y secretos: NUNCA al repo
+.env
+.env.*
+!.env.example
+local.properties
+*.jks
+*.keystore
+keystore.properties
+signing.properties
+*.pem
+*.key
+*.p8
+*.p12
+*.pfx
+google-services.json
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Sistema y registros
+.DS_Store
+Thumbs.db
+desktop.ini
+*.log
+*.hprof

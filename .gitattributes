@@ -1,0 +1,14 @@
+# LF en el repo; CRLF solo para scripts de Windows.
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binarios
+*.png binary
+*.jpg binary
+*.webp binary
+*.ico binary
+*.woff2 binary
+*.jar binary
+*.keystore binary
+*.jks binary
