@@ -18,6 +18,20 @@ day of the year fill with a stronger shade of green.
 
 Android first, distributed as an APK through GitHub Releases.
 
+## Development
+
+Requirements: Node 24, pnpm (the version in `package.json`), JDK 21 and Android SDK 36.
+
+```bash
+pnpm install       # dependencies and git hooks
+pnpm dev           # app in the browser
+pnpm check         # format, lint, types, tests and build
+pnpm test:e2e      # end-to-end tests (first: pnpm exec playwright install chromium)
+pnpm android:apk   # debug APK in android/app/build/outputs/apk/debug/
+```
+
+The app requests no Android permissions, not even Internet access.
+
 ## License
 
 © 2026 Russian03. All rights reserved. See [LICENSE](LICENSE).

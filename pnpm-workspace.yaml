@@ -1,0 +1,4 @@
+# Cadena de suministro: no se instalan versiones con menos de 3 días y ningún paquete
+# ejecuta scripts de instalación sin aprobarlo aquí.
+minimumReleaseAge: 4320
+strictDepBuilds: true
