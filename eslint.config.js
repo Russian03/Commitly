@@ -26,6 +26,23 @@ export default defineConfig(
     rules: { 'no-console': 'error' },
   },
   {
+    files: ['src/domain/**/*.ts'],
+    ignores: ['src/domain/**/*.test.ts'],
+    rules: {
+      'no-restricted-imports': [
+        'error',
+        {
+          patterns: [
+            {
+              regex: '^(?!\\./)',
+              message: 'El dominio es TypeScript puro: solo importa de sí mismo.',
+            },
+          ],
+        },
+      ],
+    },
+  },
+  {
     files: ['*.{js,ts}', 'scripts/**/*.{js,mjs}'],
     languageOptions: { globals: globals.node },
   },

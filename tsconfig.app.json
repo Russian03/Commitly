@@ -2,7 +2,7 @@
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.cache/tsconfig.app.tsbuildinfo",
-    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "lib": ["ES2021", "DOM", "DOM.Iterable"],
     "jsx": "react-jsx",
     "types": ["vite/client"]
   },
