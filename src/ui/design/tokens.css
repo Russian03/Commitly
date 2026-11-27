@@ -1,0 +1,25 @@
+:root {
+  --color-bg: #ffffff;
+  --color-brand: #017a38;
+  --color-title: #0b5a2f;
+  /* Verde grisáceo oscurecido: cumple contraste AA en texto pequeño. */
+  --color-muted: #4e7466;
+  --color-surface: #eef9f7;
+  --color-line: #eef2f0;
+
+  --color-level-0: #eef8f7;
+  --color-level-1: #bfe5cf;
+  --color-level-2: #7ccb9c;
+  --color-level-3: #33a566;
+  --color-level-4: #017a38;
+
+  --font-family: 'Inter Tight Variable', system-ui, sans-serif;
+
+  --space-screen: 16px;
+  --space-grid: 14px;
+  --radius-card: 2px;
+
+  /* Android inyecta las variables en las WebView que no informan de env(). */
+  --safe-top: var(--safe-area-inset-top, env(safe-area-inset-top, 0px));
+  --safe-bottom: var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px));
+}

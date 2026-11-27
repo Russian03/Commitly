@@ -1,0 +1,11 @@
+.app {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  padding: calc(var(--safe-top) + 8px) var(--space-screen) 24px;
+  overflow-y: auto;
+}

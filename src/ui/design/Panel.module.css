@@ -1,0 +1,11 @@
+.panel {
+  display: grid;
+  min-height: 160px;
+  padding: 24px;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  color: var(--color-muted);
+  font-size: 14px;
+  place-items: center;
+  text-align: center;
+}

@@ -1,0 +1,11 @@
+.header {
+  display: flex;
+  min-height: 48px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Compensa los 3 px de zona táctil para que el círculo quede a la distancia del margen. */
+.action {
+  margin-right: -3px;
+}

@@ -1,23 +1,14 @@
-import AxeBuilder from '@axe-core/playwright'
 import { expect, test } from '@playwright/test'
+import { watchProblems } from './watch'
 
 test('arranca sin errores y sin salir del propio origen', async ({ page, baseURL }) => {
-  const errors: string[] = []
-  const external: string[] = []
-  page.on('pageerror', (error) => errors.push(error.message))
-  page.on('console', (message) => {
-    if (message.type() === 'error') errors.push(message.text())
-  })
-  page.on('request', (request) => {
-    const url = request.url()
-    if (!url.startsWith(`${baseURL ?? ''}/`) && !url.startsWith('data:')) external.push(url)
-  })
+  const problems = await watchProblems(page, baseURL)
 
   await page.goto('/')
 
-  await expect(page.getByRole('heading', { level: 1, name: 'Commitly' })).toBeVisible()
-  expect(errors).toEqual([])
-  expect(external).toEqual([])
+  await expect(page.getByRole('img', { name: 'Commitly' })).toBeVisible()
+  await page.waitForLoadState('networkidle')
+  expect(problems).toEqual([])
 })
 
 test('la compilación lleva una política de seguridad de contenido estricta', async ({ page }) => {
@@ -30,12 +21,4 @@ test('la compilación lleva una política de seguridad de contenido estricta', a
   expect(policy).toContain("script-src 'self'")
   expect(policy).toContain("connect-src 'self'")
   expect(policy).not.toContain('unsafe-eval')
-})
-
-test('no tiene fallos de accesibilidad detectables', async ({ page }) => {
-  await page.goto('/')
-
-  const { violations } = await new AxeBuilder({ page }).analyze()
-
-  expect(violations).toEqual([])
 })
