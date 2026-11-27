@@ -1,0 +1,24 @@
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px var(--space-screen);
+  background: var(--color-surface);
+  color: var(--color-danger);
+  font-size: 14px;
+  gap: 12px;
+}
+
+/* En las páginas sin barra inferior, que no quede bajo la barra de gestos. */
+.banner:last-child {
+  padding-bottom: calc(4px + var(--safe-bottom));
+}
+
+.retry {
+  min-height: 48px;
+  padding: 0 12px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  font-weight: 600;
+}

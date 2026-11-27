@@ -1,7 +1,6 @@
 import type { AppData } from './appData'
 import type { DayKey } from './date'
 import type { Goal } from './goal'
-import { activeGoals } from './history'
 
 export interface DayGoal {
   readonly goal: Goal
@@ -15,10 +14,4 @@ export function goalsForDay(data: AppData, day: DayKey): DayGoal[] {
   return data.goals
     .filter((goal) => record.scheduled.includes(goal.id))
     .map((goal) => ({ goal, done: record.done.includes(goal.id) }))
-}
-
-/** Las metas activas que ese día no tocan. */
-export function goalsNotOnDay(data: AppData, day: DayKey): Goal[] {
-  const scheduled = data.days[day]?.scheduled ?? []
-  return activeGoals(data).filter((goal) => !scheduled.includes(goal.id))
 }

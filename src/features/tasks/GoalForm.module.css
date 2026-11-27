@@ -1,0 +1,55 @@
+.form {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.art {
+  display: grid;
+  height: min(46vw, 220px);
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  place-items: center;
+}
+
+.art img {
+  height: 86%;
+}
+
+.preset {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+}
+
+.name {
+  display: grid;
+  gap: 8px;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.name input {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 16px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  color: var(--color-title);
+  font: inherit;
+  font-size: 19px;
+}
+
+.name input::placeholder {
+  color: var(--color-muted);
+}
+
+.name input[aria-invalid='true'] {
+  border-color: var(--color-danger);
+}
+
+.error {
+  color: var(--color-danger);
+  font-size: 14px;
+}

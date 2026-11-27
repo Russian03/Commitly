@@ -1,0 +1,51 @@
+.open {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  gap: var(--space-grid);
+  text-align: left;
+  user-select: none;
+}
+
+.art {
+  display: grid;
+  width: 72px;
+  height: 72px;
+  flex: none;
+  border-radius: var(--radius-card);
+  background: var(--color-surface);
+  place-items: center;
+}
+
+.art img {
+  width: 84%;
+  height: 84%;
+}
+
+.text {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+  gap: 4px;
+}
+
+.name {
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.days {
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.open svg {
+  flex: none;
+}

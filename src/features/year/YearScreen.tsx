@@ -1,12 +1,13 @@
 import { useTranslation } from 'react-i18next'
-import { toDayKey, yearOf } from '../../domain/date'
+import { yearOf } from '../../domain/date'
+import { useApp } from '../../state/context'
 import { Panel } from '../../ui/design/Panel'
 import { Screen } from '../../ui/design/Screen'
 import { ScreenTitle } from '../../ui/design/Titles'
 
 export function YearScreen() {
   const { t } = useTranslation()
-  const year = yearOf(toDayKey(new Date()))
+  const year = useApp((state) => yearOf(state.today))
 
   return (
     <Screen>

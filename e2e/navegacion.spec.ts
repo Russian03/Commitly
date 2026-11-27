@@ -7,6 +7,7 @@ test.use({ locale: 'es-ES' })
 
 const SECTIONS = [
   { name: 'Tareas', heading: 'Tu día perfecto!' },
+  { name: 'Editar', heading: 'Editar metas' },
   { name: 'Hoy', heading: 'Galardones' },
   { name: 'Año', heading: /^Año \d{4}$/ },
   { name: 'Ajustes', heading: 'Ajustes' },

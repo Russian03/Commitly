@@ -1,0 +1,88 @@
+.main {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  user-select: none;
+}
+
+.main:disabled {
+  cursor: default;
+}
+
+.art {
+  position: relative;
+  order: 0;
+  display: grid;
+  width: 100%;
+  border-radius: var(--radius-card);
+  aspect-ratio: 1;
+  background: var(--color-surface);
+  place-items: center;
+  transition:
+    background-color 200ms ease-out,
+    transform 120ms ease-out;
+}
+
+.main:active:not(:disabled) .art {
+  transform: scale(0.97);
+}
+
+.main[aria-pressed='true'] .art {
+  background: var(--color-level-1);
+}
+
+.main:disabled img {
+  opacity: 0.35;
+}
+
+.art img {
+  width: 78%;
+  height: 78%;
+}
+
+.check {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  display: grid;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-brand);
+  color: var(--color-bg);
+  place-items: center;
+}
+
+.meta {
+  margin-top: 10px;
+  order: 1;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.title {
+  margin-top: 4px;
+  order: 2;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+/* Sin dato encima, el título necesita el mismo aire bajo la ilustración. */
+.addTitle {
+  composes: title;
+  margin-top: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .art {
+    transition: none;
+  }
+}
