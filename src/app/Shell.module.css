@@ -1,0 +1,11 @@
+.main {
+  flex: 1;
+  padding: 8px var(--space-screen) 24px;
+  overflow: hidden auto;
+}
+
+/* Sin barra inferior, el margen del sistema lo pone la propia página. */
+.page {
+  composes: main;
+  padding-bottom: calc(24px + var(--safe-bottom));
+}

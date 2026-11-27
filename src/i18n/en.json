@@ -2,18 +2,104 @@
   "nav": {
     "label": "Sections",
     "tasks": "Tasks",
+    "edit": "Edit",
     "today": "Today",
     "year": "Year",
     "settings": "Settings"
   },
   "tasks": {
-    "headline": { "lead": "Your", "first": "perfect", "second": "day!" },
+    "headline": {
+      "lead": "Your",
+      "first": "perfect",
+      "second": "day!"
+    },
     "todayTitle": "Today",
-    "empty": "You have no goals yet.",
-    "add": "Add goal"
+    "restDay": "No goals for today.",
+    "add": "Add new goal",
+    "done": "Done"
   },
-  "today": { "title": "Awards" },
-  "year": { "title": "Year {{year}}" },
-  "settings": { "title": "Settings", "version": "Version {{version}}" },
-  "common": { "comingSoon": "Under construction." }
+  "today": {
+    "title": "Awards"
+  },
+  "year": {
+    "title": "Year {{year}}"
+  },
+  "settings": {
+    "title": "Settings",
+    "version": "Version {{version}}"
+  },
+  "common": {
+    "comingSoon": "Under construction."
+  },
+  "goals": {
+    "presets": {
+      "read": "Read 30 min",
+      "study": "Study 1 h",
+      "exercise": "Exercise 30 min",
+      "water": "Drink 2 L of water",
+      "meditate": "Meditate 10 min",
+      "sleep": "Sleep before 11 pm"
+    },
+    "categories": {
+      "read": "Reading",
+      "study": "Study",
+      "exercise": "Movement",
+      "water": "Health",
+      "meditate": "Calm",
+      "sleep": "Rest",
+      "custom": "Custom"
+    },
+    "custom": "Create my own"
+  },
+  "schedule": {
+    "everyDay": "Every day",
+    "weekdays": "Weekdays",
+    "weekend": "Weekends"
+  },
+  "catalog": {
+    "title": "Add goal",
+    "added": "Already added",
+    "close": "Close"
+  },
+  "form": {
+    "createTitle": "New goal",
+    "editTitle": "Edit goal",
+    "name": "Name",
+    "namePlaceholder": "Play the guitar",
+    "days": "Days",
+    "add": "Add",
+    "save": "Save",
+    "back": "Back",
+    "remove": "Remove goal",
+    "removeQuestion": "Remove it? It stops counting from today.",
+    "removeConfirm": "Remove",
+    "cancel": "Cancel",
+    "errors": {
+      "title-empty": "Enter a name.",
+      "title-too-long": "40 characters at most.",
+      "no-weekdays": "Choose at least one day.",
+      "duplicate": "You already have that goal.",
+      "day-full": "One of those days already has 12 goals.",
+      "not-found": "That goal no longer exists.",
+      "not-scheduled": "That goal is not due today."
+    }
+  },
+  "status": {
+    "loading": "Loading",
+    "corruptTitle": "Your data cannot be read",
+    "corrupt": "It looks damaged. A copy has been saved on the device and nothing has been deleted.",
+    "startOver": "Start over",
+    "startOverQuestion": "The app will start empty. The copy is kept.",
+    "startOverConfirm": "Yes, start over",
+    "unsupportedTitle": "Update Commitly",
+    "unsupported": "Your data was saved by a newer version of the app.",
+    "loadErrorTitle": "Your data could not be loaded",
+    "loadError": "Please try again.",
+    "retry": "Retry",
+    "saveFailed": "Could not save."
+  },
+  "edit": {
+    "title": "Edit goals",
+    "empty": "You have no goals yet."
+  }
 }

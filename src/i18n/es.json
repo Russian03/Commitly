@@ -2,18 +2,104 @@
   "nav": {
     "label": "Secciones",
     "tasks": "Tareas",
+    "edit": "Editar",
     "today": "Hoy",
     "year": "Año",
     "settings": "Ajustes"
   },
   "tasks": {
-    "headline": { "lead": "Tu", "first": "día", "second": "perfecto!" },
+    "headline": {
+      "lead": "Tu",
+      "first": "día",
+      "second": "perfecto!"
+    },
     "todayTitle": "Hoy",
-    "empty": "Aún no tienes metas.",
-    "add": "Añadir meta"
+    "restDay": "Hoy no toca ninguna meta.",
+    "add": "Añadir nueva meta",
+    "done": "Hecho"
   },
-  "today": { "title": "Galardones" },
-  "year": { "title": "Año {{year}}" },
-  "settings": { "title": "Ajustes", "version": "Versión {{version}}" },
-  "common": { "comingSoon": "En construcción." }
+  "today": {
+    "title": "Galardones"
+  },
+  "year": {
+    "title": "Año {{year}}"
+  },
+  "settings": {
+    "title": "Ajustes",
+    "version": "Versión {{version}}"
+  },
+  "common": {
+    "comingSoon": "En construcción."
+  },
+  "goals": {
+    "presets": {
+      "read": "Leer 30 min",
+      "study": "Estudiar 1 h",
+      "exercise": "Hacer ejercicio 30 min",
+      "water": "Beber 2 L de agua",
+      "meditate": "Meditar 10 min",
+      "sleep": "Dormir antes de las 23:00"
+    },
+    "categories": {
+      "read": "Lectura",
+      "study": "Estudio",
+      "exercise": "Movimiento",
+      "water": "Salud",
+      "meditate": "Calma",
+      "sleep": "Descanso",
+      "custom": "Personalizada"
+    },
+    "custom": "Crear la mía"
+  },
+  "schedule": {
+    "everyDay": "Cada día",
+    "weekdays": "Entre semana",
+    "weekend": "Fines de semana"
+  },
+  "catalog": {
+    "title": "Añadir meta",
+    "added": "Ya añadida",
+    "close": "Cerrar"
+  },
+  "form": {
+    "createTitle": "Nueva meta",
+    "editTitle": "Editar meta",
+    "name": "Nombre",
+    "namePlaceholder": "Tocar la guitarra",
+    "days": "Días",
+    "add": "Añadir",
+    "save": "Guardar",
+    "back": "Volver",
+    "remove": "Quitar meta",
+    "removeQuestion": "¿Quitarla? Dejará de contar desde hoy.",
+    "removeConfirm": "Quitar",
+    "cancel": "Cancelar",
+    "errors": {
+      "title-empty": "Escribe un nombre.",
+      "title-too-long": "Máximo 40 caracteres.",
+      "no-weekdays": "Elige al menos un día.",
+      "duplicate": "Ya tienes esa meta.",
+      "day-full": "Algún día elegido ya tiene 12 metas.",
+      "not-found": "Esa meta ya no existe.",
+      "not-scheduled": "Esa meta hoy no toca."
+    }
+  },
+  "status": {
+    "loading": "Cargando",
+    "corruptTitle": "No se pueden leer los datos",
+    "corrupt": "Parecen dañados. Se ha guardado una copia en el dispositivo y no se ha borrado nada.",
+    "startOver": "Empezar de cero",
+    "startOverQuestion": "La app empezará vacía. La copia se conserva.",
+    "startOverConfirm": "Sí, empezar de cero",
+    "unsupportedTitle": "Actualiza Commitly",
+    "unsupported": "Los datos se guardaron con una versión más nueva de la app.",
+    "loadErrorTitle": "No se han podido cargar los datos",
+    "loadError": "Vuelve a intentarlo.",
+    "retry": "Reintentar",
+    "saveFailed": "No se ha podido guardar."
+  },
+  "edit": {
+    "title": "Editar metas",
+    "empty": "Aún no tienes metas."
+  }
 }

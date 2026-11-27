@@ -40,6 +40,8 @@ export default defineConfig({
   build: {
     // La misma WebView mínima que declara capacitor.config.ts.
     target: 'chrome89',
+    // Todo se carga desde el propio dispositivo: trocear el código no aceleraría nada.
+    chunkSizeWarningLimit: 800,
   },
   test: {
     environment: 'jsdom',

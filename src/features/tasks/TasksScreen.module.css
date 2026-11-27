@@ -1,0 +1,4 @@
+.today {
+  display: grid;
+  gap: var(--space-grid);
+}

@@ -25,10 +25,19 @@
   line-height: 1.15;
 }
 
-.section {
+.block {
   margin-top: 28px;
 }
 
-.headline + .section {
+.headline + .block {
   margin-top: 50px;
+}
+
+.block > .title {
+  margin-top: 0;
+}
+
+/* Foco puesto por la app al abrir una página: no necesita marco. */
+.title:focus {
+  outline: none;
 }

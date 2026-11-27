@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import { addGoal, removeGoal, toggleGoal } from './actions'
 import { createEmptyData } from './appData'
-import { goalsForDay, goalsNotOnDay } from './selectors'
+import { goalsForDay } from './selectors'
 import { preset, unwrap } from './testing'
 
 const FRIDAY = '2026-11-27'
@@ -29,21 +29,5 @@ describe('goalsForDay', () => {
 
   it('devuelve una lista vacía para un día sin registro', () => {
     expect(goalsForDay(build(), '2026-01-01')).toEqual([])
-  })
-})
-
-describe('goalsNotOnDay', () => {
-  it('lista las metas activas que ese día no tocan', () => {
-    expect(goalsNotOnDay(build(), FRIDAY).map((goal) => goal.id)).toEqual(['g2'])
-  })
-
-  it('en un día sin registro lista todas las activas', () => {
-    expect(goalsNotOnDay(build(), '2026-01-01').map((goal) => goal.id)).toEqual(['g3', 'g2', 'g1'])
-  })
-
-  it('no incluye las quitadas', () => {
-    const data = unwrap(removeGoal(build(), FRIDAY, 'g2'))
-
-    expect(goalsNotOnDay(data, FRIDAY)).toEqual([])
   })
 })

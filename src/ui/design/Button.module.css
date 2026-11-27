@@ -1,0 +1,36 @@
+.button {
+  width: 100%;
+  min-height: 52px;
+  padding: 0 24px;
+  border: 0;
+  border-radius: 26px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  transition: transform 120ms ease-out;
+  user-select: none;
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.primary {
+  background: var(--color-brand);
+  color: var(--color-bg);
+}
+
+.soft {
+  background: var(--color-surface);
+}
+
+.quiet {
+  background: none;
+  color: var(--color-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}
