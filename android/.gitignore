@@ -1,0 +1,18 @@
+# Compilación
+.gradle/
+build/
+*.apk
+*.aab
+
+# Configuración local
+local.properties
+*.iml
+.idea/
+captures/
+.cxx/
+.externalNativeBuild/
+
+# Generado por «cap sync»
+capacitor-cordova-android-plugins/
+app/src/main/assets/
+app/src/main/res/xml/config.xml

@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+// La versión sale solo de package.json. versionCode = mayor * 10000 + menor * 100 + parche.
+def packageJson = rootProject.file('../package.json')
+def appVersion = new groovy.json.JsonSlurper().parse(packageJson).version.toString()
+def versionParts = appVersion =~ /^(\d+)\.(\d{1,2})\.(\d{1,2})$/
+if (!versionParts.matches()) {
+    throw new GradleException("Versión no válida en package.json: '$appVersion' (se espera X.Y.Z)")
+}
+def appVersionCode = versionParts.group(1).toInteger() * 10000 +
+        versionParts.group(2).toInteger() * 100 +
+        versionParts.group(3).toInteger()
+
+android {
+    namespace = "io.github.russian03.commitly"
+    compileSdk = rootProject.ext.compileSdkVersion
+
+    defaultConfig {
+        applicationId "io.github.russian03.commitly"
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
+        versionCode appVersionCode
+        versionName appVersion
+        aaptOptions {
+            // Ficheros que no se empaquetan dentro de los recursos web.
+            ignoreAssetsPattern = '!.svn:!.git:!.ds_store:!*.scc:.*:!CVS:!thumbs.db:!picasa.ini:!*~'
+        }
+    }
+
+    buildTypes {
+        debug {
+            // La versión de depuración convive con la publicada.
+            applicationIdSuffix ".debug"
+            versionNameSuffix "-debug"
+        }
+        release {
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    lint {
+        abortOnError true
+        checkReleaseBuilds true
+    }
+}
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
+    implementation "androidx.coordinatorlayout:coordinatorlayout:$androidxCoordinatorLayoutVersion"
+    implementation "androidx.core:core-splashscreen:$coreSplashScreenVersion"
+    implementation project(':capacitor-android')
+    implementation project(':capacitor-cordova-android-plugins')
+}
+
+apply from: 'capacitor.build.gradle'
