@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "label": "Secciones",
+    "tasks": "Tareas",
+    "today": "Hoy",
+    "year": "Año",
+    "settings": "Ajustes"
+  },
+  "tasks": {
+    "headline": { "lead": "Tu", "first": "día", "second": "perfecto!" },
+    "todayTitle": "Hoy",
+    "empty": "Aún no tienes metas.",
+    "add": "Añadir meta"
+  },
+  "today": { "title": "Galardones" },
+  "year": { "title": "Año {{year}}" },
+  "settings": { "title": "Ajustes", "version": "Versión {{version}}" },
+  "common": { "comingSoon": "En construcción." }
+}

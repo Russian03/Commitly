@@ -1,0 +1,44 @@
+/* Zona táctil de 48 px con un círculo visible de 42 px. */
+.button {
+  position: relative;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  place-items: center;
+  user-select: none;
+}
+
+.button::before {
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  content: '';
+  transition: transform 120ms ease-out;
+}
+
+.button:active::before {
+  transform: scale(0.9);
+}
+
+.button:disabled {
+  cursor: default;
+}
+
+.button:disabled::before {
+  transform: none;
+}
+
+.button svg {
+  position: relative;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button::before {
+    transition: none;
+  }
+}

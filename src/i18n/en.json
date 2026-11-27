@@ -1,0 +1,19 @@
+{
+  "nav": {
+    "label": "Sections",
+    "tasks": "Tasks",
+    "today": "Today",
+    "year": "Year",
+    "settings": "Settings"
+  },
+  "tasks": {
+    "headline": { "lead": "Your", "first": "perfect", "second": "day!" },
+    "todayTitle": "Today",
+    "empty": "You have no goals yet.",
+    "add": "Add goal"
+  },
+  "today": { "title": "Awards" },
+  "year": { "title": "Year {{year}}" },
+  "settings": { "title": "Settings", "version": "Version {{version}}" },
+  "common": { "comingSoon": "Under construction." }
+}
