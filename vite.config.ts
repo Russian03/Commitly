@@ -48,8 +48,21 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       include: ['src/**/*.{ts,tsx}'],
-      exclude: ['src/main.tsx', 'src/**/*.d.ts', 'src/test/**', 'src/**/*.test.{ts,tsx}'],
-      thresholds: { statements: 80, branches: 80, functions: 80, lines: 80 },
+      exclude: [
+        'src/main.tsx',
+        'src/**/*.d.ts',
+        'src/test/**',
+        'src/**/testing.ts',
+        'src/**/*.test.{ts,tsx}',
+      ],
+      thresholds: {
+        statements: 80,
+        branches: 80,
+        functions: 80,
+        lines: 80,
+        // Las reglas de la app y sus datos se exigen más.
+        'src/{domain,data}/**': { statements: 90, branches: 90, functions: 90, lines: 90 },
+      },
     },
   },
 })
