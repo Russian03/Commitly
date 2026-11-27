@@ -1,6 +1,6 @@
-import AxeBuilder from '@axe-core/playwright'
 import type { Page } from '@playwright/test'
 import { expect, test } from '@playwright/test'
+import { expectAccessible } from './accessibility'
 import { watchProblems } from './watch'
 
 test.use({ locale: 'es-ES' })
@@ -34,8 +34,7 @@ for (const { name, heading } of SECTIONS) {
     for (const other of SECTIONS.filter((section) => section.name !== name)) {
       await expect.poll(() => leftEdge(page, other.name)).toBeGreaterThan(150)
     }
-    const { violations } = await new AxeBuilder({ page }).analyze()
-    expect(violations).toEqual([])
+    await expectAccessible(page)
     expect(problems).toEqual([])
   })
 }

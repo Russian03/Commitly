@@ -1,9 +1,8 @@
-import AxeBuilder from '@axe-core/playwright'
 import type { Page } from '@playwright/test'
 import { expect, test } from '@playwright/test'
+import { expectAccessible } from './accessibility'
 import { watchProblems } from './watch'
 
-// Sin animaciones de por medio, la revisión de accesibilidad mide los colores definitivos.
 test.use({ locale: 'es-ES', contextOptions: { reducedMotion: 'reduce' } })
 
 const button = (page: Page, name: string) => page.getByRole('button', { name, exact: true })
@@ -16,13 +15,6 @@ async function addPreset(page: Page, name: string) {
   await button(page, 'Añadir nueva meta').click()
   await card(page, name).click()
   await button(page, 'Añadir').click()
-}
-
-const expectAccessible = async (page: Page) => {
-  // Las tarjetas entran con un fundido corto.
-  await page.waitForTimeout(600)
-  const { violations } = await new AxeBuilder({ page }).analyze()
-  expect(violations).toEqual([])
 }
 
 const expectNoSidewaysScroll = async (page: Page) => {
