@@ -1,13 +1,11 @@
 import type { TFunction } from 'i18next'
 import type { Weekday } from '../../domain/date'
 import type { GoalContent } from '../../domain/goal'
+import { capitalize } from '../../i18n/capitalize'
 
 export function goalName(content: GoalContent, t: TFunction): string {
   return content.kind === 'preset' ? t(`goals.presets.${content.preset}`) : content.title
 }
-
-const capitalize = (text: string, language: string) =>
-  text.charAt(0).toLocaleUpperCase(language) + text.slice(1)
 
 export function weekdayName(
   day: Weekday,

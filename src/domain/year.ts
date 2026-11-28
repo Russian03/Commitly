@@ -33,6 +33,13 @@ export function recordedYears(data: AppData, today: DayKey): number[] {
   return [...new Set([...past, today].map(yearOf))].sort((a, b) => a - b)
 }
 
+/** Por dónde se empieza a recorrer un año: hoy o, en uno anterior, el último registrado. */
+export function defaultDay(data: AppData, year: number, today: DayKey): DayKey {
+  if (yearOf(today) === year) return today
+  const recorded = recordedDays(data).filter((day) => yearOf(day) === year)
+  return recorded.pop() ?? `${year}-12-31`
+}
+
 export interface GridFit {
   readonly columns: number
   readonly rows: number

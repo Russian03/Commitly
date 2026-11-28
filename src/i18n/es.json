@@ -61,14 +61,33 @@
     "partial": "{{value}} de {{target}}"
   },
   "year": {
-    "title": "Año {{year}}"
+    "title": "Año {{year}}",
+    "days": "Días de {{year}}",
+    "previous": "Año anterior",
+    "next": "Año siguiente",
+    "today": "Hoy",
+    "future": "Todavía no ha llegado",
+    "noRecord": "Sin registro",
+    "noColor": "Sin color",
+    "green": "Verde {{level}} de 4",
+    "perfectGreen": "Día perfecto · verde {{level}} de 4",
+    "less": "Menos",
+    "more": "Más",
+    "scale": {
+      "limited_one": "Con {{count}} meta, el máximo de hoy es el verde {{ceiling}} de 4.",
+      "limited_other": "Con {{count}} metas, el máximo de hoy es el verde {{ceiling}} de 4.",
+      "reachable": "Hoy puedes llegar al verde más intenso.",
+      "reached": "Verde más intenso conseguido."
+    },
+    "pick": {
+      "title": "Elige un día",
+      "open": "Toca un cuadro para verlo",
+      "close": "Otro toque lo cierra"
+    }
   },
   "settings": {
     "title": "Ajustes",
     "version": "Versión {{version}}"
-  },
-  "common": {
-    "comingSoon": "En construcción."
   },
   "goals": {
     "presets": {

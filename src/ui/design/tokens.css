@@ -6,6 +6,8 @@
   --color-muted: #4e7466;
   --color-surface: #eef9f7;
   --color-line: #eef2f0;
+  /* Contorno de los días que aún no han llegado. */
+  --color-outline: #d5e6df;
   --color-danger: #a8321f;
 
   --color-level-0: #eef8f7;

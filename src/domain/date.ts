@@ -21,10 +21,15 @@ function fromParts(year: number, month: number, day: number): DayKey {
   return `${year}-${pad(month)}-${pad(day)}` as DayKey
 }
 
+/** Año, mes empezando en 0 y día, en el orden que piden `Date` y `Date.UTC`. */
+function toParts(day: DayKey): [number, number, number] {
+  const [year = NaN, month = NaN, date = NaN] = day.split('-').map(Number)
+  return [year, month - 1, date]
+}
+
 // Las cuentas entre días se hacen en UTC, donde todos los días duran 24 horas.
 function toUtcMillis(day: DayKey): number {
-  const [year = NaN, month = NaN, date = NaN] = day.split('-').map(Number)
-  return Date.UTC(year, month - 1, date)
+  return Date.UTC(...toParts(day))
 }
 
 function fromUtcMillis(millis: number): DayKey {
@@ -35,6 +40,11 @@ function fromUtcMillis(millis: number): DayKey {
 /** El día en el que cae un instante según la zona horaria del dispositivo. */
 export function toDayKey(date: Date): DayKey {
   return fromParts(date.getFullYear(), date.getMonth() + 1, date.getDate())
+}
+
+/** El mediodía local de ese día, para darle formato: ningún cambio de hora lo mueve de fecha. */
+export function toLocalDate(day: DayKey): Date {
+  return new Date(...toParts(day), 12)
 }
 
 /** Valida un texto externo: devuelve `null` si no es un día que exista. */

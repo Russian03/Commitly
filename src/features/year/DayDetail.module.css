@@ -1,0 +1,5 @@
+.swatch {
+  composes: day from './Day.module.css';
+  width: 32px;
+  height: 32px;
+}

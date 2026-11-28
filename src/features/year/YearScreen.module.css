@@ -1,0 +1,40 @@
+/* Ocupa justo la pantalla: la cuadrícula se queda con lo que sobra. */
+.screen {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+}
+
+.screen > * {
+  flex-shrink: 0;
+}
+
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Centrados con el texto del título, y el círculo a la distancia del margen. */
+.years {
+  display: flex;
+  margin: 8px -3px 0 0;
+}
+
+.years button:disabled {
+  opacity: 0.35;
+}
+
+.below {
+  display: grid;
+  gap: var(--space-grid);
+  margin-top: var(--space-grid);
+}
+
+/* En móviles bajos se juntan para que el año siga cabiendo sin desplazar. */
+@media (max-height: 640px) {
+  .below {
+    gap: 8px;
+    margin-top: 8px;
+  }
+}
