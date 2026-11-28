@@ -7,4 +7,24 @@ if (typeof HTMLCanvasElement !== 'undefined') {
   HTMLCanvasElement.prototype.getContext = () => null
 }
 
+// jsdom no maqueta: cada elemento observado dice medir el hueco de un móvil de 393 px.
+if (typeof window !== 'undefined') {
+  window.ResizeObserver = class implements ResizeObserver {
+    constructor(private readonly notify: ResizeObserverCallback) {}
+
+    observe(target: Element) {
+      const contentRect = { width: 361, height: 500 } as DOMRectReadOnly
+      this.notify([{ target, contentRect } as ResizeObserverEntry], this)
+    }
+
+    unobserve() {
+      return undefined
+    }
+
+    disconnect() {
+      return undefined
+    }
+  }
+}
+
 afterEach(cleanup)

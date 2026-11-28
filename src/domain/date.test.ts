@@ -1,5 +1,14 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { addDays, daysBetween, daysOfYear, parseDayKey, toDayKey, weekdayOf, yearOf } from './date'
+import {
+  addDays,
+  daysBetween,
+  daysOfYear,
+  parseDayKey,
+  toDayKey,
+  toLocalDate,
+  weekdayOf,
+  yearOf,
+} from './date'
 
 afterEach(() => {
   vi.unstubAllEnvs()
@@ -105,6 +114,17 @@ describe('weekdayOf', () => {
   ] as const)('%s es el día %i de la semana', (day, weekday) => {
     expect(weekdayOf(day)).toBe(weekday)
   })
+})
+
+describe('toLocalDate', () => {
+  it.each(['Europe/Madrid', 'Pacific/Kiritimati', 'Pacific/Pago_Pago'])(
+    'conserva el día en %s',
+    (zone) => {
+      vi.stubEnv('TZ', zone)
+
+      expect(toDayKey(toLocalDate('2026-03-29'))).toBe('2026-03-29')
+    },
+  )
 })
 
 describe('daysOfYear', () => {

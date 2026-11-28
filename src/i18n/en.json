@@ -61,14 +61,33 @@
     "partial": "{{value}} of {{target}}"
   },
   "year": {
-    "title": "Year {{year}}"
+    "title": "Year {{year}}",
+    "days": "Days of {{year}}",
+    "previous": "Previous year",
+    "next": "Next year",
+    "today": "Today",
+    "future": "Still to come",
+    "noRecord": "Nothing recorded",
+    "noColor": "No color",
+    "green": "Green {{level}} of 4",
+    "perfectGreen": "Perfect day · green {{level}} of 4",
+    "less": "Less",
+    "more": "More",
+    "scale": {
+      "limited_one": "With {{count}} goal, today tops out at green {{ceiling}} of 4.",
+      "limited_other": "With {{count}} goals, today tops out at green {{ceiling}} of 4.",
+      "reachable": "You can reach the deepest green today.",
+      "reached": "Deepest green reached."
+    },
+    "pick": {
+      "title": "Pick a day",
+      "open": "Tap a square to see it",
+      "close": "Tap it again to close"
+    }
   },
   "settings": {
     "title": "Settings",
     "version": "Version {{version}}"
-  },
-  "common": {
-    "comingSoon": "Under construction."
   },
   "goals": {
     "presets": {

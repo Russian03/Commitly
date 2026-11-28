@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 import { dataWith, record } from './testing'
-import { fitGrid, recordedYears, yearCells } from './year'
+import { defaultDay, fitGrid, recordedYears, yearCells } from './year'
 
 const data = dataWith({
   days: {
@@ -50,6 +50,24 @@ describe('recordedYears', () => {
 
   it('no ofrece años posteriores a hoy', () => {
     expect(recordedYears(data, '2025-12-31')).toEqual([2025])
+  })
+})
+
+describe('defaultDay', () => {
+  it('en el año actual es hoy', () => {
+    expect(defaultDay(data, 2026, '2026-11-27')).toBe('2026-11-27')
+  })
+
+  it('en un año anterior es el último día registrado', () => {
+    const past = dataWith({
+      days: { '2025-03-02': record([]), '2025-01-10': record([]), '2026-01-01': record([]) },
+    })
+
+    expect(defaultDay(past, 2025, '2026-11-27')).toBe('2025-03-02')
+  })
+
+  it('sin registros es el último día del año', () => {
+    expect(defaultDay(dataWith({}), 2024, '2026-11-27')).toBe('2024-12-31')
   })
 })
 

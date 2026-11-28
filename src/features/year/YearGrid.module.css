@@ -1,0 +1,40 @@
+/* La cuadrícula va fuera del flujo: el hueco no depende de lo que mide ella. */
+.area {
+  position: relative;
+  min-height: 140px;
+  flex: 1 0 140px;
+}
+
+.grid {
+  position: absolute;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+  inset: 0;
+}
+
+.cell {
+  composes: day from './Day.module.css';
+  padding: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.cell[data-timing='today'] {
+  outline: 2px solid var(--color-title);
+  outline-offset: 1px;
+}
+
+/* El elegido sobresale de los demás. */
+.cell[aria-pressed='true'] {
+  position: relative;
+  outline: 2px solid var(--color-title);
+  outline-offset: 1px;
+  transform: scale(1.3);
+}
+
+.cell:focus-visible {
+  position: relative;
+  outline: 2px solid var(--color-brand);
+  outline-offset: 2px;
+}
