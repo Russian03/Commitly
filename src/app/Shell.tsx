@@ -58,7 +58,8 @@ export function Shell() {
         </main>
       ) : (
         SECTIONS.filter(({ id }) => id === navigation.section).map(({ id, Screen }) => (
-          <main key={id} className={styles.main}>
+          // Enfocable para desplazarla con teclado aunque no tenga botones.
+          <main key={id} className={styles.main} tabIndex={0}>
             <Screen />
           </main>
         ))

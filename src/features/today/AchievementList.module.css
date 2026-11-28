@@ -1,0 +1,53 @@
+.list {
+  display: grid;
+  padding: 0;
+  margin: 0;
+  gap: 2px;
+  list-style: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: var(--radius-card);
+  background: var(--color-bg);
+  gap: 10px;
+}
+
+.icon {
+  flex: none;
+  color: var(--color-muted);
+}
+
+.item[data-unlocked='true'] .icon {
+  color: var(--color-brand);
+}
+
+.text {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.status {
+  color: var(--color-muted);
+  font-size: 13px;
+}
+
+.reward {
+  flex: none;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.item[data-unlocked='true'] .reward {
+  color: var(--color-brand);
+  font-weight: 600;
+}

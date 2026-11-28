@@ -4,6 +4,11 @@
   overflow: hidden auto;
 }
 
+/* El marco por dentro: por fuera quedaría recortado. */
+.main:focus-visible {
+  outline-offset: -2px;
+}
+
 /* Sin barra inferior, el margen del sistema lo pone la propia página. */
 .page {
   composes: main;

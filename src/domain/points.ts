@@ -1,6 +1,10 @@
 import type { AppData } from './appData'
 import { dayEntries } from './appData'
 import type { DayKey } from './date'
+import { addDays, toDayKey } from './date'
+
+/** Hora de la mañana a la que se suman al nivel los puntos del día anterior. */
+export const POINTS_HOUR = 8
 
 const POINTS_PER_GOAL = 10
 const PERFECT_BONUS_PER_GOAL = 5
@@ -12,9 +16,15 @@ export function dayPoints(done: number, total: number): number {
   return done * POINTS_PER_GOAL + bonus
 }
 
-export function totalPoints(data: AppData, today: DayKey): number {
+/** El último día cuyos puntos ya cuentan en este momento. */
+export function creditedThrough(now: Date): DayKey {
+  return addDays(toDayKey(now), now.getHours() >= POINTS_HOUR ? -1 : -2)
+}
+
+/** Los puntos de todos los días hasta `through`, incluido. */
+export function totalPoints(data: AppData, through: DayKey): number {
   return dayEntries(data.days)
-    .filter(([day]) => day <= today)
+    .filter(([day]) => day <= through)
     .reduce((sum, [, { done, scheduled }]) => sum + dayPoints(done.length, scheduled.length), 0)
 }
 

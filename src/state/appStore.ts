@@ -9,6 +9,7 @@ import type { DayKey } from '../domain/date'
 import { toDayKey } from '../domain/date'
 import type { GoalDraft, GoalError, GoalId } from '../domain/goal'
 import { reconcile } from '../domain/history'
+import { creditedThrough } from '../domain/points'
 
 export type Status = 'loading' | 'ready' | 'corrupt' | 'unsupported' | 'load-error'
 
@@ -16,6 +17,8 @@ export interface AppState {
   readonly status: Status
   readonly data: AppData
   readonly today: DayKey
+  /** Último día cuyos puntos ya cuentan para el nivel. */
+  readonly creditedThrough: DayKey
   /** El último guardado falló: lo que se ve en pantalla aún no está en el dispositivo. */
   readonly saveFailed: boolean
   readonly load: () => Promise<void>
@@ -34,7 +37,11 @@ export type AppStore = ReturnType<typeof createAppStore>
 
 export function createAppStore(repository: Repository, now: () => Date = () => new Date()) {
   return createStore<AppState>()((set, get) => {
-    const currentDay = () => toDayKey(now())
+    /** Lo que depende de la hora, leído en un mismo instante. */
+    const clock = () => {
+      const instant = now()
+      return { today: toDayKey(instant), creditedThrough: creditedThrough(instant) }
+    }
 
     const persist = (data: AppData) => {
       repository.save(data).then(
@@ -53,19 +60,19 @@ export function createAppStore(repository: Repository, now: () => Date = () => n
     }
 
     const open = (loaded: AppData) => {
-      const today = currentDay()
-      const data = reconcile(loaded, today)
-      set({ status: 'ready', data, today, saveFailed: false })
+      const time = clock()
+      const data = reconcile(loaded, time.today)
+      set({ ...time, status: 'ready', data, saveFailed: false })
       if (data !== loaded) persist(data)
     }
 
     const refreshDay = () => {
       if (get().status !== 'ready') return
-      const today = currentDay()
+      const time = clock()
       const previous = get().data
-      const data = reconcile(previous, today)
+      const data = reconcile(previous, time.today)
       // Día y datos cambian a la vez: nunca se ve un día sin su registro.
-      set({ today, data })
+      set({ ...time, data })
       if (data !== previous) persist(data)
     }
 
@@ -81,7 +88,7 @@ export function createAppStore(repository: Repository, now: () => Date = () => n
     return {
       status: 'loading',
       data: createEmptyData(),
-      today: currentDay(),
+      ...clock(),
       saveFailed: false,
 
       async load() {

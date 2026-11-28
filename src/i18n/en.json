@@ -19,7 +19,46 @@
     "done": "Done"
   },
   "today": {
-    "title": "Awards"
+    "title": "Awards",
+    "state": {
+      "no-goals": "No goals",
+      "rest": "Rest day",
+      "pending": "Not started",
+      "partial": "On your way",
+      "perfect": "Perfect day"
+    },
+    "emptyHint": "Add a goal from Tasks.",
+    "progress_one": "{{done}} of {{count}} goal",
+    "progress_other": "{{done}} of {{count}} goals",
+    "dayPoints_one": "+{{count, number}} point tomorrow at 8:00",
+    "dayPoints_other": "+{{count, number}} points tomorrow at 8:00",
+    "streakDays_one": "{{count}} day in a row",
+    "streakDays_other": "{{count}} days in a row",
+    "level": "Level {{level}}",
+    "totalPoints_one": "{{count, number}} point",
+    "totalPoints_other": "{{count, number}} points",
+    "toNext_one": "{{count, number}} to reach level {{next}}",
+    "toNext_other": "{{count, number}} to reach level {{next}}",
+    "progressLabel": "Progress towards level {{next}}",
+    "streaks": "Streaks",
+    "noStreak": "No streak yet",
+    "pendingPoints_one": "+{{count, number}} from yesterday at 8:00",
+    "pendingPoints_other": "+{{count, number}} from yesterday at 8:00",
+    "perfectStreak_one": "{{count}} perfect day in a row",
+    "perfectStreak_other": "{{count}} perfect days in a row",
+    "bestStreak_one": "Best: {{count}} day",
+    "bestStreak_other": "Best: {{count}} days",
+    "bestStreakNow": "This is your best",
+    "firstStreak": "Complete a whole day to begin",
+    "milestone_one": "{{count}} perfect day",
+    "milestone_other": "{{count}} perfect days",
+    "milestoneLeft_one": "{{count}} to go · +{{reward, number}} points",
+    "milestoneLeft_other": "{{count}} to go · +{{reward, number}} points",
+    "allUnlocked": "Every achievement unlocked",
+    "reward": "+{{reward, number}} points",
+    "unlocked": "Unlocked",
+    "locked": "Locked",
+    "partial": "{{value}} of {{target}}"
   },
   "year": {
     "title": "Year {{year}}"
